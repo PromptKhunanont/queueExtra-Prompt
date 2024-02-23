@@ -44,7 +44,8 @@ int main(int argc , char **argv) {
             x=dequeue_struct(&q);
             
             printf("dequeing %d\n",x);
-             }else dequeue_struct(&q);
+             }else dequeue_struct(&q, atoi(argv[i],atoi(argv[i+1])));
+             i++;
         }
         else {
        enqueue_struct(&q, atoi(argv[i]));

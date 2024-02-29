@@ -44,12 +44,13 @@ int main(int argc , char **argv) {
             x=dequeue_struct(&q);
             
             printf("dequeing %d\n",x);
-             }else dequeue_struct(&q, atoi(argv[i],atoi(argv[i+1])));
+             }else dequeue_struct(&q);
              i++;
         }
         else {
-       enqueue_struct(&q, atoi(argv[i]));
-           
+       enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
+       printf("My order is %d", atoi(argv[i++]));
+
         }
  }
   return 0;

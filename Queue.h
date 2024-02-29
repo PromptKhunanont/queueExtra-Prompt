@@ -6,7 +6,7 @@ typedef struct {
 }Queue;
 
 
-void enqueue_struct(Queue* q, int x){
+void enqueue_struct(Queue* q, int x, int z){
   Node *new_node=(Node*) malloc(sizeof(Node));
 if(new_node){ 
     new_node->data=x;
@@ -25,10 +25,38 @@ if(new_node){
 
 
 int dequeue_struct(Queue *q){
+   int price, cash;
    NodePtr t=q->headPtr;
    if(t){
-   int value= t->data;
-       /*Finish dequeue */
+   int value= t->ordernumber;
+       switch(value){
+            case 1: 
+               printf("Ramen\n");
+               price = 100*t->q;
+               printf("You have to pay %d\n", price);
+               while(1){
+                  printf("Cash : ");
+                  scanf("%d", &cash);
+                  if(cash == price){
+                     printf("Thank you.");
+                     break;
+                  }
+               }
+               break;
+            case 2: 
+               printf("Somtum\n");
+               price = 20*t->q;
+               printf("You have to pay %d\n", price);
+               break;
+            case 3: 
+               printf("Fried Chicken\n");
+               price = 50*t->q;
+               printf("You have to pay %d\n", price);
+               break;
+            default:
+               printf("No Food");
+               
+       }
        q->headPtr=t->nextPtr;
        if(q->size==1)
           q->tailPtr==NULL;

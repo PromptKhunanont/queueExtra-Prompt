@@ -9,8 +9,9 @@
 
 struct node
 {
-    int data;
     struct node *nextPtr;
+    int ordernumber;
+    int q;
 };
 
 typedef struct node Node;

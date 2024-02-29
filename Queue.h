@@ -9,6 +9,7 @@ typedef struct {
 void enqueue_struct(Queue* q, int x, int z){
   Node *new_node=(Node*) malloc(sizeof(Node));
 if(new_node){ 
+    new_node->q = z;
     new_node->ordernumber=x;
     new_node->nextPtr=NULL;
 
@@ -25,17 +26,35 @@ if(new_node){
 
 
 int dequeue_struct(Queue *q){
-   int price, cash;
+   int price, cash, b=1;
    NodePtr t=q->headPtr;
    if(t){
    int value= t->ordernumber;
        switch(value){
             case 1: 
                printf("Ramen\n");
-               price = 100*t->q;
+               price = 100*(t->q);
                printf("You have to pay %d\n", price);
+               break;
+            case 2: 
+               printf("Somtum\n");
+               price = 20*(t->q);
+               printf("You have to pay %d\n", price);
+               break;
+            case 3: 
+               printf("Fried Chicken\n");
+               price = 50*(t->q);
+               printf("You have to pay %d\n", price);
+               break;
+            default:
+               printf("No Food\n");
+               b = 0;
+
+               
+       }
+               if(b==1){
                while(1){
-                  printf("Cash : \n");
+                  printf("Cash : ");
                   scanf("%d", &cash);
                   if(cash == price){
                      printf("Thank you.\n");
@@ -44,23 +63,10 @@ int dequeue_struct(Queue *q){
                   else if(cash > price){
                      printf("Thank you.\n");
                      printf("Change is %d\n", cash-price);
+                     break;
                   }
                }
-               break;
-            case 2: 
-               printf("Somtum\n");
-               price = 20*t->q;
-               printf("You have to pay %d\n", price);
-               break;
-            case 3: 
-               printf("Fried Chicken\n");
-               price = 50*t->q;
-               printf("You have to pay %d\n", price);
-               break;
-            default:
-               printf("No Food\n");
-               
-       }
+               }
        q->headPtr=t->nextPtr;
        if(q->size==1)
           q->tailPtr==NULL;

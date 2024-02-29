@@ -43,17 +43,17 @@ int main(int argc , char **argv) {
              if(q.size != 0){
             x=dequeue_struct(&q);
             
-            printf("dequeing %d\n",x);
-             }else dequeue_struct(&q);
-             i++;
+            //printf("dequeing %d\n",x);
+            } //se dequeue_struct(&q);
+            // i++;
         }
         else {
        enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
-       printf("My order is %d\n", atoi(argv[i++]));
-
+       printf("My order is %d\n", atoi(argv[i]));
+       i++;
         }
  }
-        printf("==============================\n");
+        printf("================================\n");
         printf("There are %d people left in queue\n", q.size);
   return 0;
 }

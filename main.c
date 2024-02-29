@@ -49,9 +49,11 @@ int main(int argc , char **argv) {
         }
         else {
        enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
-       printf("My order is %d", atoi(argv[i++]));
+       printf("My order is %d\n", atoi(argv[i++]));
 
         }
  }
+        printf("==============================\n");
+        printf("There are %d people left in queue\n", q.size);
   return 0;
 }

@@ -9,7 +9,7 @@ typedef struct {
 void enqueue_struct(Queue* q, int x, int z){
   Node *new_node=(Node*) malloc(sizeof(Node));
 if(new_node){ 
-    new_node->data=x;
+    new_node->ordernumber=x;
     new_node->nextPtr=NULL;
 
    if(q->size==0)
@@ -35,11 +35,15 @@ int dequeue_struct(Queue *q){
                price = 100*t->q;
                printf("You have to pay %d\n", price);
                while(1){
-                  printf("Cash : ");
+                  printf("Cash : \n");
                   scanf("%d", &cash);
                   if(cash == price){
-                     printf("Thank you.");
+                     printf("Thank you.\n");
                      break;
+                  }
+                  else if(cash > price){
+                     printf("Thank you.\n");
+                     printf("Change is %d\n", cash-price);
                   }
                }
                break;
@@ -54,7 +58,7 @@ int dequeue_struct(Queue *q){
                printf("You have to pay %d\n", price);
                break;
             default:
-               printf("No Food");
+               printf("No Food\n");
                
        }
        q->headPtr=t->nextPtr;

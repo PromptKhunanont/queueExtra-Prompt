@@ -45,6 +45,7 @@ int main(int argc , char **argv) {
             
             //printf("dequeing %d\n",x);
             } //se dequeue_struct(&q);
+            else printf("Queue is Empty!\n");
             // i++;
         }
         else {
@@ -55,5 +56,8 @@ int main(int argc , char **argv) {
  }
         printf("================================\n");
         printf("There are %d people left in queue\n", q.size);
+        
+        if(q.size == 0){
+        }
   return 0;
 }
